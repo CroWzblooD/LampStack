@@ -1,5 +1,8 @@
 # LampStack
 
+<img width="1917" height="901" alt="Screenshot 2025-11-08 182442" src="https://github.com/user-attachments/assets/224b72cd-98bb-4834-9795-1605ef015790" />
+
+
 <div align="center">
 
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -117,6 +120,15 @@ The system employs specialized AI agents, each responsible for a distinct valida
 - Generates specific recommendations for data improvement
 - Updates PostgreSQL database with validation results
 
+---
+
+## Snapshot
+<img width="1919" height="906" alt="Screenshot 2025-11-08 182409" src="https://github.com/user-attachments/assets/6047156b-6cb9-4b1c-b2bb-990f33e3ae33" />
+
+<img width="1918" height="899" alt="Screenshot 2025-11-08 182431" src="https://github.com/user-attachments/assets/9066e3cc-47c4-4a73-aac0-76ee3043720f" />
+
+
+
 ### Orchestration Strategy
 
 LangGraph manages the sequential execution of agents through a state machine:
@@ -155,49 +167,9 @@ F: <60    (Failed - major conflicts or missing critical data)
 
 ## System Architecture
 
-### High-Level Overview
+<img width="1009" height="565" alt="Screenshot 2025-10-31 123328" src="https://github.com/user-attachments/assets/6c2c68f5-a9af-4334-868b-3012cddd3d3e" />
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        React Frontend                           │
-│                  (TypeScript + Vite + Tailwind)                 │
-│                                                                 │
-│  • Provider Upload Interface    • Trust Score Dashboard        │
-│  • Real-time Progress Monitor   • Validation Results Viewer    │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         │ WebSocket (Real-time Updates)
-                         │ REST API (CRUD Operations)
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   Java Spring Boot Backend                      │
-│                                                                 │
-│  • REST Controllers          • WebSocket Server                │
-│  • Async Job Orchestration   • JWT Authentication              │
-│  • PostgreSQL Integration    • Exception Handling              │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-                         │ HTTP REST
-                         │
-                         ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                  Python FastAPI Agent Service                   │
-│                                                                 │
-│  • LangGraph Orchestrator    • Mistral OCR Integration         │
-│  • 4 Specialized Agents      • Milvus Vector Database          │
-│  • External API Clients      • Sentence Transformers           │
-└─────────────────────────┬───────────────────────┬───────────────┘
-                          │                       │
-                          ▼                       ▼
-                ┌──────────────────┐    ┌──────────────────┐
-                │   PostgreSQL 15  │    │   Milvus 2.3.6   │
-                │                  │    │                  │
-                │ • Provider Data  │    │ • Vector Embed.  │
-                │ • Validation Jobs│    │ • Semantic Search│
-                │ • Trust Scores   │    │ • Similarity     │
-                └──────────────────┘    └──────────────────┘
-```
+---
 
 ### Data Flow
 
